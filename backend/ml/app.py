@@ -9,6 +9,10 @@ model = joblib.load("coa_model.pkl")
 topic_encoder = joblib.load("topic_encoder.pkl")
 level_encoder = joblib.load("level_encoder.pkl")
 
+@app.get("/")
+def read_root():
+    return {"message": "Welcome to the Student Level Predictor API! Go to /docs for the interactive API documentation."}
+
 @app.post("/predict")
 def predict_level(data: dict):
     try:

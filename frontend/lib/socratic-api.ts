@@ -35,7 +35,12 @@ export async function sendSocraticMessage(
         });
 
         if (!response.ok) {
-            throw new Error("Failed to get tutor response");
+            console.warn(`Backend returned ${response.status}. Using fallback response.`);
+            return {
+                response: "I'm here to help you learn! Let's start with a question: What do you already understand about this topic?",
+                success: false,
+                fallback: true
+            };
         }
 
         const data = await response.json();
