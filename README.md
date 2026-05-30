@@ -1,5 +1,11 @@
-# 🧠 COAVerse
-**An Immersive Learning Platform for Computer Organization & Architecture**
+<div align="center">
+  <h1>🧠 COAVerse</h1>
+  <p><b>An Immersive Learning Platform for Computer Organization & Architecture</b></p>
+  
+  [![Live Demo](https://img.shields.io/badge/Live%20Demo-Vercel-%23000000.svg?style=for-the-badge&logo=vercel&logoColor=white)](https://coa-verse-in6p.vercel.app/)
+</div>
+
+<br/>
 
 COAVerse is an interactive learning platform designed specifically for **Computer Organization and Architecture (COA)**, a subject students consistently find abstract, hardware-heavy, and difficult to visualize.
 
@@ -26,105 +32,90 @@ Most students struggle because:
 
 COAVerse transforms COA learning by providing a **virtual, interactive environment** where students can **see, practice, and apply** core concepts instead of memorizing them.
 
-The platform is divided into five core modules:
-
 ---
 
 ## 🧩 Core Modules
 
 ### 🔹 Practice
-- Concept-based practice questions
-- Step-by-step logic reinforcement
-- Helps students prepare for exams and vivas
+- **Concept-based questions:** Step-by-step logic reinforcement.
+- **Exam Prep:** Helps students prepare for exams and vivas.
 
 ### 🎮 Games
-- Gamified learning for COA concepts
-- Improves engagement and retention
-- Converts complex hardware logic into interactive challenges
+- **Gamified learning:** Improves engagement and retention.
+- **Interactive challenges:** Converts complex hardware logic into fun activities.
 
 ### 📘 Learn
-- Structured explanations of COA topics
-- Visual representations of registers, memory, and data flow
-- Beginner-friendly learning path
+- **Structured explanations:** Clear breakdown of COA topics.
+- **Visual representations:** See registers, memory, and data flow in action.
 
 ### 🛠️ Projects
-- Mini and guided projects related to COA
-- Encourages practical application of concepts
-- Bridges theory with implementation
+- **Guided mini-projects:** Encourages practical application of concepts.
+- **Implementation:** Bridges theory with real-world practice.
 
 ### 🗓️ Planner
-- Personalized study planning
-- Helps students manage COA topics efficiently
-- Reduces last-minute exam stress
+- **Personalized study:** Helps students manage COA topics efficiently.
+- **Stress reduction:** Prevents last-minute exam panic.
 
 ---
 
 ## 🧠 Key Features
 
-- COA-focused learning experience
-- Interactive and visual-first approach
-- Student-centric design
-- Easy navigation and clean UI
-- Suitable for beginners and intermediate learners
+- ✨ **COA-Focused Learning:** Tailored specifically for architecture concepts.
+- 🎨 **Visual-First Approach:** Clean UI with interactive elements.
+- 🧑‍🎓 **Student-Centric Design:** Suitable for beginners and intermediate learners.
+- 🤖 **AI-Powered Tutor:** Socratic questioning to guide understanding.
 
 ---
 
 ## 🏗️ Tech Stack
 
-Tech Stack – COAVerse
-🖥️ Frontend
-Next.js (React Framework)
-TypeScript
-Tailwind CSS
-HTML5 & CSS3
+### 🖥️ Frontend
+- **Next.js** (React Framework)
+- **TypeScript**
+- **Tailwind CSS**
 
-⚙️ Backend
-Node.js
-Express.js
-REST APIs
+### ⚙️ Backend
+- **Node.js & Express.js** (REST APIs & Authentication)
+- **Python & FastAPI** (Machine Learning Microservice)
 
-🧠 AI / ML (if included)
-Python
-Pandas
-Scikit-learn
-Custom ML models for learning assistance
+### 🧠 AI / ML
+- **Groq API** (Llama 3 for Socratic Tutor)
+- **Scikit-learn & Pandas** (Student Level Prediction)
 
-🗄️ Database
-JSON-based storage / Local storage
-(If you used MongoDB or any DB, tell me and I’ll correct this)
+### 🛠️ Deployment
+- **Frontend:** Vercel
+- **Backend Services:** Render
 
-🛠️ Tools & Deployment
-Git & GitHub
-Vercel / Localhost Deployment
-Google Drive (Demo Hosting)
+---
 
 ## 🎯 Target Audience
 
-- Undergraduate engineering students
-- First-time learners of Computer Organization
-- Students preparing for exams, vivas, and interviews
+- 🎓 Undergraduate engineering students
+- 📖 First-time learners of Computer Organization
+- 💼 Students preparing for exams, vivas, and interviews
 
 ---
 
 ## 🚀 Future Enhancements
 
-- 3D visualization of hardware components
-- Register Transfer Level (RTL) simulation
-- Virtual CPU execution walkthroughs
-- AI-based adaptive learning paths
+- 🧊 3D visualization of hardware components
+- 🔌 Register Transfer Level (RTL) simulation
+- 💻 Virtual CPU execution walkthroughs
+- 🧠 AI-based adaptive learning paths
 
 ---
 
 ## 📂 Project Structure
+
+```text
 COAVerse/
-│── index.html
-│── css/
-│ └── styles.css
-│── js/
-│ └── script.js
-│── assets/
-│ └── images/
-│── README.md
+├── frontend/          # Next.js Application (UI, Routing, Components)
+├── backend/           # Node.js Main API (Auth, Quiz processing, AI Tutor)
+│   └── ml/            # Python FastAPI Service (Student Level Prediction)
+└── README.md
+```
+
+---
 
 ## 🤝 Team COAVerse
 
@@ -134,4 +125,4 @@ This project was built collaboratively by:
 - **Mariya Anjum** – Content Development & Research  
 - **Syeda Naazima Unnisa** – Backend Development & Integration  
 
-We worked together to design and develop an interactive platform to simplify Computer Organization and Architecture learning.
+*We worked together to design and develop an interactive platform to simplify Computer Organization and Architecture learning.*
