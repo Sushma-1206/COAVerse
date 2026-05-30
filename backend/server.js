@@ -55,8 +55,9 @@ app.post("/submit-quiz", async (req, res) => {
     const avg_time_seconds = timeTakenSeconds / totalQuestions;
 
     // ---- Step 2: Call ML backend ----
+    const ML_URL = process.env.ML_BACKEND_URL || "http://127.0.0.1:8000";
     const mlResponse = await axios.post(
-      "http://127.0.0.1:8000/predict",
+      `${ML_URL}/predict`,
       {
         topic: topic,
         accuracy_percent: accuracy_percent,
@@ -92,7 +93,7 @@ app.post("/submit-quiz", async (req, res) => {
 /*
   Start server
 */
-const PORT = 3002;
+const PORT = process.env.PORT || 3002;
 app.listen(PORT, () => {
   console.log(`Main backend running at http://localhost:${PORT}`);
 });
