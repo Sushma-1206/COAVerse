@@ -1,5 +1,4 @@
 <div align="center">
-  <img src="https://raw.githubusercontent.com/Sushma-1206/COAVerse/main/frontend/public/favicon.ico" width="80" alt="COAVerse Logo" />
   <h1>🧠 COAVerse</h1>
   <p><b>An Immersive Learning Platform for Computer Organization & Architecture</b></p>
   
