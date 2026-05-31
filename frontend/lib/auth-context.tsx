@@ -1,7 +1,7 @@
 "use client";
 
 import React, { createContext, useContext, useState, useEffect, ReactNode } from "react";
-import { User, getCurrentUser, loginUser, registerUser, logout as logoutApi } from "./auth-api";
+import { User, getCurrentUser, loginUser, registerUser, logout as logoutApi, loginWithGoogle as loginWithGoogleApi } from "./auth-api";
 
 interface AuthContextType {
     user: User | null;
@@ -9,6 +9,7 @@ interface AuthContextType {
     isLoading: boolean;
     login: (email: string, password: string) => Promise<void>;
     register: (name: string, email: string, password: string) => Promise<void>;
+    loginWithGoogle: (credential: string) => Promise<void>;
     logout: () => void;
 }
 
@@ -42,6 +43,11 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         await registerUser(name, email, password);
     }
 
+    async function loginWithGoogle(credential: string) {
+        const response = await loginWithGoogleApi(credential);
+        setUser(response.user);
+    }
+
     function logout() {
         logoutApi();
         setUser(null);
@@ -55,6 +61,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
                 isLoading,
                 login,
                 register,
+                loginWithGoogle,
                 logout,
             }}
         >

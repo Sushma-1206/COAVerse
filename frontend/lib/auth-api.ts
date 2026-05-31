@@ -1,4 +1,4 @@
-const API_BASE = "http://localhost:3002";
+const API_BASE = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3002";
 
 export interface User {
     id: string;
@@ -73,6 +73,26 @@ export async function getCurrentUser(): Promise<User | null> {
         localStorage.removeItem("auth_token");
         return null;
     }
+}
+
+export async function loginWithGoogle(credential: string): Promise<AuthResponse> {
+    const response = await fetch(`${API_BASE}/auth/google`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ credential }),
+    });
+
+    const data = await response.json();
+
+    if (!response.ok) {
+        throw new Error(data.error || "Google login failed");
+    }
+
+    if (data.token) {
+        localStorage.setItem("auth_token", data.token);
+    }
+
+    return data;
 }
 
 export function getToken(): string | null {

@@ -1,11 +1,14 @@
 import express from "express";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
+import { OAuth2Client } from "google-auth-library";
 
 const router = express.Router();
 
 const JWT_SECRET = process.env.JWT_SECRET || "coa-learning-platform-secret-key-2024";
 const SALT_ROUNDS = 10;
+const GOOGLE_CLIENT_ID = process.env.GOOGLE_CLIENT_ID || "";
+const googleClient = new OAuth2Client(GOOGLE_CLIENT_ID);
 
 // In-memory user storage (replace with database in production)
 const users = [];
@@ -101,6 +104,64 @@ router.post("/login", async (req, res) => {
     } catch (error) {
         console.error("Login error:", error);
         res.status(500).json({ error: "Login failed" });
+    }
+});
+
+// POST /auth/google
+// Accepts Google user info (from frontend userinfo endpoint) and returns a JWT
+router.post("/google", async (req, res) => {
+    try {
+        const { credential } = req.body;
+
+        if (!credential) {
+            return res.status(400).json({ error: "Google credential is required" });
+        }
+
+        // Credential is a JSON string of userinfo from Google's /userinfo endpoint
+        let googleUser;
+        try {
+            googleUser = JSON.parse(credential);
+        } catch {
+            return res.status(400).json({ error: "Invalid Google credential format" });
+        }
+
+        const { email, name, sub: googleId } = googleUser;
+
+        if (!email) {
+            return res.status(400).json({ error: "Google account has no email" });
+        }
+
+        // Find or create user
+        let user = users.find(u => u.email === email);
+
+        if (!user) {
+            // Auto-register the Google user
+            user = {
+                id: `google_${googleId || Date.now()}`,
+                name: name || email.split("@")[0],
+                email,
+                googleId,
+                createdAt: new Date().toISOString()
+            };
+            users.push(user);
+            console.log(`New user registered via Google: ${email}`);
+        }
+
+        // Issue our own JWT
+        const token = jwt.sign(
+            { id: user.id, email: user.email, name: user.name },
+            JWT_SECRET,
+            { expiresIn: "7d" }
+        );
+
+        res.json({
+            message: "Google login successful",
+            token,
+            user: { id: user.id, name: user.name, email: user.email }
+        });
+    } catch (error) {
+        console.error("Google auth error:", error);
+        res.status(500).json({ error: "Google authentication failed" });
     }
 });
 
