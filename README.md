@@ -127,3 +127,4 @@ This project was built collaboratively by:
 
 *We worked together to design and develop an interactive platform to simplify Computer Organization and Architecture learning.*
 
+ 
