@@ -69,6 +69,76 @@ COAVerse transforms COA learning by providing a **virtual, interactive environme
 
 ---
 
+## 🔄 How COAVerse Works
+
+COAVerse follows a learning flow designed to help students move from understanding concepts to applying them:
+
+1. **📘 Learn** – Explore structured explanations and visual representations of COA concepts.
+2. **🧩 Practice** – Test understanding through concept-based questions and quizzes.
+3. **🎮 Play** – Reinforce concepts through interactive and gamified challenges.
+4. **🛠️ Build** – Apply learned concepts through guided mini-projects.
+5. **📊 Improve** – Use personalized planning and analytics to identify areas that need more attention.
+
+This approach combines **learning, practice, visualization, and assessment** in one platform.
+
+---
+
+## ⚙️ Getting Started
+
+### Prerequisites
+
+Make sure you have the following installed:
+
+* **Node.js** – For running the frontend and backend
+* **npm** – For package management
+* **Python 3.x** – Required for the ML microservice
+
+### Installation
+
+Clone the repository:
+
+```bash
+git clone https://github.com/Sushma-1206/COAVerse.git
+cd COAVerse
+```
+
+Install the frontend dependencies:
+
+```bash
+cd frontend
+npm install
+```
+
+Install the backend dependencies:
+
+```bash
+cd ../backend
+npm install
+```
+
+For the ML service, install the required Python dependencies according to the project's ML service configuration.
+
+The frontend, backend, and ML service can then be configured and started using their respective environment variables and development commands.
+
+---
+
+## 📚 Learning Approach
+
+COAVerse is designed around the idea that **abstract hardware concepts are easier to understand when students can visualize and interact with them**.
+
+Rather than relying only on theoretical explanations, the platform combines:
+
+* Visual learning
+* Interactive practice
+* Gamification
+* AI-assisted questioning
+* Personalized study planning
+* Project-based learning
+
+The goal is to make COA concepts more **understandable, engaging, and practical** for engineering students.
+
+---
+
 ## 🎯 Target Audience
 
 - 🎓 Undergraduate engineering students
